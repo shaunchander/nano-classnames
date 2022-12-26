@@ -1,17 +1,14 @@
-type Classnames =
-	| string
-	| string[]
-	| { [key: string]: boolean }
-	| ((workingClassnames?: string) => string);
+type Classnames = string | [boolean, string, string?];
 /**
- * Constructs classnames from multi-type inputs.
- * @param  {...any} classes A multi-type variadic parameter. Accepts strings, array of strings, an object, or a function that returns a string.
- * @example classnames("text-red-500", ["py-5", "px-2"]) ➡️ "text-red-500 py-5 px-2"
- * @example classnames({"rounded-lg": true, "rounded-none": false}) ➡️ "rounded-lg"
- * @example classnames(() => "text-blue-500") ➡️ "text-blue-500"
+ * Constructs classnames from variadic parameters.
+ * @param  {...string | [boolean, string, string?]} classes A variadic parameter. Accepts strings and tuples to combine into classnames.
+ * @example classnames("text-red-500", "py-5", "px-2") ➡️ "text-red-500 py-5 px-2"
+ * @example classnames([true, "bg-red-500", "bg-blue-500"]) ➡️ "bg-red-500"
+ * @example classnames([false, "rounded-none", "rounded-lg"]) ➡️ "rounded-lg"
+ *
  *
  */
-export const classnames = (...classes: Classnames[]) => {
+export const cn = (...classes: Classnames[]) => {
 	let workingClassnames = "";
 
 	classes.forEach((className) => {
@@ -22,31 +19,19 @@ export const classnames = (...classes: Classnames[]) => {
 };
 
 /**
- * A utility for determining how to append a `className` to `workingClassnames`
- * @param className A variadic type containing classnames to append.
+ * A utility to determine how to append a classname.
+ * @param className - A Classnames parameter, can be a string or a tuple.
+ * @returns a string to append to the classnames.
  */
-
-// rome-ignore lint/suspicious/noExplicitAny: <explanation>
 const determine = (className: Classnames) => {
 	switch (typeof className) {
 		case "string":
 			return className;
-		case "function":
-			return className();
-
 		case "object":
-			if (Array.isArray(className)) {
-				return className.join(" ");
-			} else {
-				let workingClassnames = "";
-
-				Object.keys(className).forEach((key) => {
-					if (className[key]) {
-						workingClassnames = workingClassnames.concat(key);
-					}
-				});
-
-				return workingClassnames;
+			if (className[0]) {
+				return className[1];
+			} else if (className[2]) {
+				return className[2];
 			}
 		default:
 			return "";

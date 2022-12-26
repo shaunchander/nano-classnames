@@ -9,6 +9,7 @@
 		"lib"
 	],
 	"scripts": {
+		"dev": "tsc --watch",
 		"test": "jest",
 		"build": "tsc",
 		"prepublishOnly": "npm run test && npm run build"
