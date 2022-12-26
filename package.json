@@ -10,7 +10,8 @@
 	],
 	"scripts": {
 		"test": "jest",
-		"build": "tsc"
+		"build": "tsc",
+		"prepublishOnly": "npm run test && npm run build"
 	},
 	"author": "Shaun Chander <shaunchander@gmail.com>",
 	"license": "MIT",
