@@ -21,7 +21,6 @@
 
 
 ## ⚡️ Getting started
----
 
 First, install `nano-classnames` via npm/yarn/pnpm:
 
@@ -49,7 +48,6 @@ You can now compose your classnames:
 Read the documention to learn more about composing classes with `nano-classnames`.
 
 ## 🤔 Why `nano-classnames`
----
 
 `nano-classnames` was inspired from the great [`classnames`](https://www.npmjs.com/package/classnames) package with an emphasis on speed and composability. While I love `classnames`, I found its syntax for conditional classnames to be disruptive as you must use an object to apply conditional classes, which can be clunkly to work with. `nano-classnames` does away with this by using tuples (an array) to quickly apply conditional classes. 
 
@@ -58,7 +56,6 @@ Read the documention to learn more about composing classes with `nano-classnames
 **`nano-classnames` is not a drop-in replacement for `classnames`** 
 
 ## 📖 Documentation
----
 
 By design, `nano-classnames` is meant to be extremely lightweight and straightforward. It works great if you're using [TailwindCSS](https://tailwindcss.com/)!
 
@@ -109,7 +106,6 @@ cn(classes) ➡️ "..."
 ```
 
 ## ⚙️ API
----
 
 ### `cn(...classes)`
 - `...classes: (string | [boolean, string, string])[]`
