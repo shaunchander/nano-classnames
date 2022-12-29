@@ -49,7 +49,7 @@ Read the documention to learn more about composing classes with `nano-classnames
 
 ## 🤔 Why `nano-classnames`
 
-`nano-classnames` was inspired from the great [`classnames`](https://www.npmjs.com/package/classnames) package with an emphasis on speed and composability. While I love `classnames`, I found its syntax for conditional classnames to be disruptive as you must use an object to apply conditional classes, which can be clunkly to work with. `nano-classnames` does away with this by using tuples (an array) to quickly apply conditional classes. 
+`nano-classnames` was inspired from the great [`classnames`](https://www.npmjs.com/package/classnames) package with an emphasis on speed and composability. While I love `classnames`, I found its syntax for conditional classnames to be disruptive as you must use an object to apply conditional classes, which can be clunky to work with. `nano-classnames` does away with this by using tuples (an array) to quickly apply conditional classes. 
 
 `nano-classnames` also only supports strings for composing classes (hence "nano"). This is an intentional design choice as, personally, I never use nested arrays/objects when composing classes. If you need to use them for composing classes then I recommend using [`classnames`](https://www.npmjs.com/package/classnames).
 
